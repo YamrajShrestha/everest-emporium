@@ -26,7 +26,8 @@ const home = () => (
       height={150}
       alt="Picture of the author"
     />
-    <div className="flex justify-center font-bold">Login Page</div> <br></br>
+    <div className="flex justify-center font-bold text-white">Login Page</div>{" "}
+    <br></br>
     <Formik
       initialValues={{
         username: "",
@@ -57,7 +58,7 @@ const home = () => (
             <div>{errors.password}</div>
           ) : null}
           <br></br>
-          Don't have an account yet ?{" "}
+          <div class="text-white">Don't have an account yet ?</div>{" "}
           <Link href="/register">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Sign Up
