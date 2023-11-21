@@ -4,15 +4,22 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Image from "next/image";
-import Link from "next/link";
-import {  message } from 'antd';
+import { message } from "antd";
 
 const SignupSchema = Yup.object().shape({
-  username: Yup.string()
+  productName: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  password: Yup.string()
+  Price: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  Category: Yup.string()
+    .min(2, "Too Short!")
+    .max(50, "Too Long!")
+    .required("Required"),
+  Description: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -44,13 +51,15 @@ const home = () => {
       />
       {contextHolder}
       <div className="flex justify-center font-bold text-white">
-        Login Page
+        Add Product List
       </div>{" "}
-      <br></br>
+      <br/>
       <Formik
         initialValues={{
-          username: "",
-          password: "",
+          productName: "",
+          Price: "",
+          Category: "",
+          Description: "",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
@@ -61,34 +70,42 @@ const home = () => {
         {({ errors, touched }) => (
           <Form className="flex flex-col justify-center items-center mx-auto">
             <Field
-              name="username"
-              placeholder="Enter username"
+              name="productName"
+              placeholder="Enter Product Name"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
             />{" "}
-            {errors.username && touched.username ? (
-              <div>{errors.username}</div>
+            {errors.productName && touched.productName ? (
+              <div>{errors.productName}</div>
             ) : null}
             <Field
-              name="password"
-              placeholder="Enter your password"
+              name="Price"
+              placeholder="Enter your Price"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
             />{" "}
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
+            {errors.Price && touched.Price ? <div>{errors.Price}</div> : null}
+            <Field
+              name="Category"
+              placeholder="Enter Product Category"
+              className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
+            />{" "}
+            {errors.Category && touched.Category ? (
+              <div>{errors.Category}</div>
             ) : null}
-            <br></br>
-            <div class="text-white">Don't have an account yet ?</div>{" "}
-            <Link href="/register">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Sign Up
-              </button>
-            </Link>{" "}
-            <br></br>
+            <Field
+              name="Description"
+              placeholder="Enter Production Description"
+              className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
+            />{" "}
+            {errors.Description && touched.Description ? (
+              <div>{errors.Description}</div>
+            ) : null}{" "}
+            <br />
+            <input type="file"/>
             <button
               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
               type="submit"
             >
-              Submit
+              Save Product
             </button>
           </Form>
         )}
