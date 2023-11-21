@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
   productName: String, // String is shorthand for {type: String}
-  Price: String,
-  Category: String,
-  Description: String,
+  price: String,
+  category: String,
+  description: String,
 });
 
-const User = mongoose.model("User", productSchema);
+const Product = mongoose.model("Product", productSchema);
 
-module.exports = User;
+module.exports = Product;

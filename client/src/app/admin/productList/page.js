@@ -11,15 +11,15 @@ const SignupSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  Price: Yup.string()
+  price: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  Category: Yup.string()
+  category: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  Description: Yup.string()
+  description: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
@@ -53,13 +53,13 @@ const home = () => {
       <div className="flex justify-center font-bold text-white">
         Add Product List
       </div>{" "}
-      <br/>
+      <br />
       <Formik
         initialValues={{
           productName: "",
-          Price: "",
-          Category: "",
-          Description: "",
+          price: "",
+          category: "",
+          description: "",
         }}
         validationSchema={SignupSchema}
         onSubmit={(values) => {
@@ -78,29 +78,29 @@ const home = () => {
               <div>{errors.productName}</div>
             ) : null}
             <Field
-              name="Price"
+              name="price"
               placeholder="Enter your Price"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
             />{" "}
-            {errors.Price && touched.Price ? <div>{errors.Price}</div> : null}
+            {errors.price && touched.price ? <div>{errors.price}</div> : null}
             <Field
-              name="Category"
-              placeholder="Enter Product Category"
+              name="category"
+              placeholder="Enter Product category"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
             />{" "}
-            {errors.Category && touched.Category ? (
-              <div>{errors.Category}</div>
+            {errors.category && touched.category ? (
+              <div>{errors.category}</div>
             ) : null}
             <Field
-              name="Description"
-              placeholder="Enter Production Description"
+              name="description"
+              placeholder="Enter Production description"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
             />{" "}
-            {errors.Description && touched.Description ? (
-              <div>{errors.Description}</div>
+            {errors.description && touched.description ? (
+              <div>{errors.description}</div>
             ) : null}{" "}
             <br />
-            <input type="file"/>
+            <input type="file" />
             <button
               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
               type="submit"
