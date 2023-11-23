@@ -48,6 +48,7 @@ const home = () => {
     });
     console.log(res);
   };
+
   return (
     <div className="mx-auto">
       <Image
@@ -57,7 +58,6 @@ const home = () => {
         height={150}
         alt="Picture of the author"
       />
-      {contextHolder}
       <div className="flex justify-center font-bold text-white">
         Add Product List
       </div>{" "}
@@ -79,31 +79,32 @@ const home = () => {
       >
         {({ errors, touched }) => (
           <Form className="flex flex-col justify-center items-center mx-auto">
+            {contextHolder}
             <Field
               name="title"
               placeholder="Enter Product title"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.title && touched.title ? <div>{errors.title}</div> : null}
             <Field
               name="price"
               placeholder="Enter product price"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.price && touched.price ? <div>{errors.price}</div> : null}
             <br />
             <Field
               name="brand"
               placeholder="Enter brand name"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.brand && touched.brand ? <div>{errors.brand}</div> : null}
             <br />
             <Field
               name="category"
               placeholder="Enter product category"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.category && touched.category ? (
               <div>{errors.category}</div>
             ) : null}
@@ -112,7 +113,7 @@ const home = () => {
               name="description"
               placeholder="Enter product description"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.description && touched.description ? (
               <div>{errors.description}</div>
             ) : null}
@@ -120,11 +121,8 @@ const home = () => {
               name="image"
               placeholder="Upload product image"
               className="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.image && touched.image ? <div>{errors.image}</div> : null}
-            <br />
-            <br />
-            <input type="file" />
             <button
               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
               type="submit"

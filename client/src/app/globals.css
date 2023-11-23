@@ -6,3 +6,9 @@ body {
   background-color: darkblue;
   color: #000;
 }
+.text-align{
+  text-align: center;
+}
+.text-align a{
+  color: #ccc;
+}

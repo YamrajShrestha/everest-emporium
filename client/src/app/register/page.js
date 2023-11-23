@@ -47,7 +47,9 @@ const index = () => {
         height={150}
         alt="Picture of the author"
       />
-      <div className="flex justify-center font-bold text-white">Sign Up Page</div>{" "}
+      <div className="flex justify-center font-bold text-white">
+        Sign Up Page
+      </div>{" "}
       <br></br>
       <Formik
         initialValues={{
@@ -78,13 +80,13 @@ const index = () => {
               type="email"
               placeholder="Enter email"
               class="border border-gray-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.email && touched.email ? <div>{errors.email}</div> : null}{" "}
             <Field
               name="password"
               placeholder="Enter password"
               class="border border-gary-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.password && touched.password ? (
               <div>{errors.password}</div>
             ) : null}
@@ -92,17 +94,17 @@ const index = () => {
               name="confirmPassword"
               placeholder="Confirm password"
               class="border border-gary-300 focus:outline-none focus:border-blue-500 rounded py-2 px-4"
-            />{" "}
+            />
             {errors.confirmPassword && touched.confirmPassword ? (
               <div>{errors.confirmPassword}</div>
             ) : null}
             <br></br>
-            <div className="text-white">Already have an account ?</div>{" "}
-            <Link href="/">
+            <div className="text-white">Already have an account ?</div>
+            <Link href="./login">
               <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Login
               </button>
-            </Link>{" "}
+            </Link>
             <br></br>
             <button
               class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
