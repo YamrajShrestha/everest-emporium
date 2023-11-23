@@ -1,11 +1,22 @@
 const express = require("express");
-const router = express.Router();
-const Product = require("../routes/product");
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
+var router = express.Router();
+
+const Product = require("../models/product");
+router.use(express.json());
 
 router.post("/products", async (req, res) => {
-  await Product.create(req.body);
+  const data = await Product.create(req.body);
+  if (data) {
+    res.json({ msg: `${req.body.productName} has been created` });
+  }
+});
+
+router.get("/products", async (req, res) => {
+  // console.log("test")
+  const data = await Product.find();
+  if (data) {
+    res.json({ productList: data });
+  }
 });
 
 module.exports = router;

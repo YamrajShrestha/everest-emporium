@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Image from "next/image";
@@ -19,6 +19,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const home = () => {
+  useEffect(()=>{
+alert("hello")
+  },[])
   const [messageApi, contextHolder] = message.useMessage();
   const handleLogin = async (values) => {
     const res = await fetch("http://localhost:4000/login", {
